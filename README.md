@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # React Regex
 
-## Création automatique d'input à partie de ce qui est défini dans FormStructure.js
+## Création automatique d'input à partir de ce qui est défini dans FormStructure.js
 
 Exemple :
 
