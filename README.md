@@ -1,8 +1,6 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 # React Regex
 
-## Création automatique d'input à partir de ce qui est défini dans FormStructure.js
+Création automatique d'input à partir de ce qui est défini dans FormStructure.js
 
 Exemple :
 
@@ -18,15 +16,15 @@ export const fields = [
       {
         pattern: /[^a-z\d]/i,
         message: "Uniquement des caractères alphanumériques",
-        expected: false
+        expected: false,
       },
       {
         pattern: /^.{5,12}$/,
         message: "Entre 5 et 12 caractères",
-        expected: true
-      }
-    ]
-  }
+        expected: true,
+      },
+    ],
+  },
 ];
 ```
 
