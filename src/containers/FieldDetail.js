@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
+import PatternDetail from "../components/PatternDetail";
 
 const FieldDetail = (props) => {
   const [label, setLabel] = useState("");
+  const [placeHolder, setPlaceHolder] = useState("");
   const [description, setDescription] = useState("");
   const [pattern, setPattern] = useState("");
   const { activeField: field } = props;
@@ -10,12 +12,12 @@ const FieldDetail = (props) => {
   useEffect(() => {
     if (field) {
       setLabel(field.label);
+      setPlaceHolder(field.placeholder);
       setDescription(field.description);
       setPattern(field.pattern);
     }
   }, [field]);
 
-  console.log(field);
   return (
     <>
       {!field ? (
@@ -30,6 +32,15 @@ const FieldDetail = (props) => {
               type="text"
               value={label}
               onChange={(e) => setLabel(e.target.value)}
+              autoComplete="off"
+            ></input>
+
+            <label htmlFor="placeHolder">Placeholder</label>
+            <input
+              name="placeHolder"
+              type="text"
+              value={placeHolder}
+              onChange={(e) => setPlaceHolder(e.target.value)}
               autoComplete="off"
             ></input>
 
@@ -52,17 +63,7 @@ const FieldDetail = (props) => {
             ></input>
           </form>
 
-          <h3>patternDetail: </h3>
-          {field.patternDetail &&
-            field.patternDetail.map((item, index) => {
-              return (
-                <div key={index}>
-                  <h4>pattern: {String(item.pattern)}</h4>
-                  <h4>message: {item.message}</h4>
-                  <h4>expected: {String(item.expected)}</h4>
-                </div>
-              );
-            })}
+          <PatternDetail patternDetail={field.patternDetail} />
         </div>
       )}
     </>
