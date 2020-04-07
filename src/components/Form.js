@@ -7,9 +7,9 @@ const Form = ({
   setFormData,
   formTitle,
   buttonText,
-  onSubmit
+  onSubmit,
 }) => {
-  const getInputFromName = name => {
+  const getInputFromName = (name) => {
     return formStructure.reduce((acc, item) => {
       if (item.name === name) {
         acc = item;
@@ -23,7 +23,7 @@ const Form = ({
     return obj.hasOwnProperty(prop) && obj[prop];
   };
 
-  const getData = name => {
+  const getData = (name) => {
     let result = "";
     if (formData[name]) {
       result = formData[name].value;
@@ -31,7 +31,7 @@ const Form = ({
     return result;
   };
 
-  const getRegexTest = name => {
+  const getRegexTest = (name) => {
     return formData[name] && formData[name].regexTest;
   };
 
@@ -48,12 +48,12 @@ const Form = ({
     }
   };
 
-  const handleChange = event => {
+  const handleChange = (event) => {
     const formDataCopy = { ...formData };
     const { name, value } = event.target;
     formDataCopy[name] = {
       value: event.target.value,
-      regexTest: validate(name, value)
+      regexTest: validate(name, value),
     };
     setFormData(formDataCopy);
   };
@@ -61,7 +61,7 @@ const Form = ({
   return (
     <form className="" onSubmit={onSubmit}>
       <h2>{formTitle}</h2>
-      {formStructure.map(f => (
+      {formStructure.map((f) => (
         <FormInput
           key={f.name}
           label={f.label}
@@ -76,6 +76,7 @@ const Form = ({
         />
       ))}
       <button className="submitBtn">{buttonText}</button>
+      <button className="clearBtn">Tout effacer</button>
     </form>
   );
 };

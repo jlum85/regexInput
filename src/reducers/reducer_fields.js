@@ -1,4 +1,4 @@
-export const fields = [
+export const data = [
   {
     name: "username",
     label: "Login",
@@ -9,14 +9,14 @@ export const fields = [
       {
         pattern: /[^a-z\d]/i,
         message: "Uniquement des caractères alphanumériques",
-        expected: false
+        expected: false,
       },
       {
         pattern: /^.{5,12}$/,
         message: "Entre 5 et 12 caractères",
-        expected: true
-      }
-    ]
+        expected: true,
+      },
+    ],
   },
   {
     name: "email",
@@ -25,7 +25,7 @@ export const fields = [
     // pour enlever le warning infondé :  Unnecessary escape character: \.
     // eslint-disable-next-line
     pattern: /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/i,
-    description: "Email doit être une adresse valide, ex:  me@mydomain.com"
+    description: "Email doit être une adresse valide, ex:  me@mydomain.com",
   },
   {
     name: "password",
@@ -39,33 +39,33 @@ export const fields = [
       {
         pattern: /[^\d\w@-]/i,
         message: "Uniquement des caractères alphanumériques et @, -, _",
-        expected: false
+        expected: false,
       },
       {
         pattern: /^.{8,20}$/,
         message: "Entre 8 et 20 caractères",
-        expected: true
-      }
-    ]
+        expected: true,
+      },
+    ],
   },
   {
     name: "phone",
     label: "Téléphone",
     placeholder: "Téléphone",
     pattern: /^\d{11}$/,
-    description: "Telephone must be a valid UK telephone number (11 digits)",
+    description: "Un téléphone valide contient 10 chiffres",
     patternDetail: [
       {
         pattern: /[^\d]/,
         message: "Uniquement des chiffres",
-        expected: false
+        expected: false,
       },
       {
-        pattern: /^.{11}$/,
-        message: "11 caractères",
-        expected: true
-      }
-    ]
+        pattern: /^.{10}$/,
+        message: "10 caractères",
+        expected: true,
+      },
+    ],
   },
   {
     name: "slug",
@@ -73,6 +73,10 @@ export const fields = [
     placeholder: "Identifiant",
     pattern: /^[a-z\d-]{8,20}$/,
     description:
-      "Uniquement des lettres miniscules, des nombres et -, longeur entre 8-20"
-  }
+      "Uniquement des lettres miniscules, des nombres et -, longeur entre 8-20",
+  },
 ];
+
+export default function () {
+  return data;
+}

@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 import Form from "../components/Form";
-import { fields } from "../components/FormStructure";
+// import { fields } from "../components/FormStructure";
+import { connect } from "react-redux";
 
-const SignUp = () => {
+const FieldList = (props) => {
   const [inputs, setInputs] = useState([]);
   console.log({ inputs });
 
-  const onSubmit = e => {
+  const onSubmit = (e) => {
     e.preventDefault();
-    console.log("submit ok ");
   };
 
   return (
     <Form
       formTitle="Création d'un nouveau compte"
-      formStructure={fields}
+      formStructure={props.fields}
       formData={inputs}
       setFormData={setInputs}
       buttonText="Valider"
@@ -23,4 +23,10 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+const mapStateToProps = (state) => {
+  return {
+    fields: state.fields,
+  };
+};
+
+export default connect(mapStateToProps)(FieldList);
