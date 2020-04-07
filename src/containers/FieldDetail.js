@@ -12,9 +12,33 @@ const FieldDetail = (props) => {
       ) : (
         <div className="detail">
           <h2>Détail de : {field.name}</h2>
-          <h3>label: {field.label}</h3>
-          <h3>pattern: {String(field.pattern)}</h3>
-          <h3>description: {field.description}</h3>
+          <form>
+            <label htmlFor="label">Titre</label>
+            <input
+              name="label"
+              type="text"
+              value={field.label}
+              // onChange={onChange}
+              autoComplete="off"
+            ></input>
+
+            <label htmlFor="label">Expression régulière</label>
+            <input
+              name="pattern"
+              type="text"
+              value={String(field.pattern)}
+              autoComplete="off"
+            ></input>
+
+            <label htmlFor="label">Description</label>
+            <input
+              name="pattern"
+              type="text"
+              value={field.description}
+              autoComplete="off"
+            ></input>
+          </form>
+
           <h3>patternDetail: </h3>
           {field.patternDetail &&
             field.patternDetail.map((item, index) => {
