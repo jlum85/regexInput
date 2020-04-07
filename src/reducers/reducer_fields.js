@@ -4,7 +4,7 @@ export const data = [
     label: "Login",
     placeholder: "username",
     pattern: /^[a-z\d]{5,12}$/i,
-    description: "Entre 5 - 12 charactères",
+    description: "Entre 5 - 12 caractères",
     patternDetail: [
       {
         pattern: /[^a-z\d]/i,

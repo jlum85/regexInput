@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 
 const FieldDetail = (props) => {
+  const [label, setLabel] = useState("");
+  const [description, setDescription] = useState("");
+  const [pattern, setPattern] = useState("");
   const { activeField: field } = props;
+
+  useEffect(() => {
+    if (field) {
+      setLabel(field.label);
+      setDescription(field.description);
+      setPattern(field.pattern);
+    }
+  }, [field]);
 
   console.log(field);
   return (
@@ -11,30 +22,32 @@ const FieldDetail = (props) => {
         <></>
       ) : (
         <div className="detail">
-          <h2>Détail de : {field.name}</h2>
+          <h2>Paramétrage de : {field.name}</h2>
           <form>
             <label htmlFor="label">Titre</label>
             <input
               name="label"
               type="text"
-              value={field.label}
-              // onChange={onChange}
+              value={label}
+              onChange={(e) => setLabel(e.target.value)}
               autoComplete="off"
             ></input>
 
-            <label htmlFor="label">Expression régulière</label>
+            <label htmlFor="description">Description</label>
             <input
-              name="pattern"
+              name="description"
               type="text"
-              value={String(field.pattern)}
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
               autoComplete="off"
             ></input>
 
-            <label htmlFor="label">Description</label>
+            <label htmlFor="pattern">Expression régulière</label>
             <input
               name="pattern"
               type="text"
-              value={field.description}
+              value={pattern}
+              onChange={(e) => setPattern(e.target.value)}
               autoComplete="off"
             ></input>
           </form>
