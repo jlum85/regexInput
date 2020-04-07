@@ -2,18 +2,20 @@ import React, { useState } from "react";
 import BtnDetailRegex from "./BtnDetailRegex";
 import ItemDetail from "./ItemDetail";
 
-const FormInput = ({
-  name,
-  label,
-  type,
-  value,
-  placeholder,
-  valid,
-  onChange,
-  errorMsg,
-  patternDetail,
-}) => {
+const FormInput = (props) => {
   const [showDetail, setShowDetail] = useState(false);
+
+  const {
+    name,
+    label,
+    type,
+    value,
+    placeholder,
+    valid,
+    onChange,
+    errorMsg,
+    patternDetail,
+  } = props;
 
   const onClickDetail = () => {
     setShowDetail(!showDetail);
@@ -40,6 +42,7 @@ const FormInput = ({
       <div className="divLabel">
         <label htmlFor={name}>{label}</label>
         <svg
+          onClick={props.onUpdate}
           xmlns="http://www.w3.org/2000/svg"
           width="20"
           height="20"
@@ -64,6 +67,7 @@ const FormInput = ({
             value={value}
             placeholder={placeholder}
             onChange={onChange}
+            autoComplete="off"
           />
         </div>
         {patternDetail && patternDetail.length > 0 ? (

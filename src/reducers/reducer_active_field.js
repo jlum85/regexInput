@@ -1,5 +1,4 @@
 import { FIELD_SELECTED } from "../actions";
-import { data } from "../reducers/reducer_fields";
 
 const initialState = null;
 

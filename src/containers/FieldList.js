@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import Form from "../components/Form";
-// import { fields } from "../components/FormStructure";
 import { connect } from "react-redux";
 
 const FieldList = (props) => {
   const [inputs, setInputs] = useState([]);
-  console.log({ inputs });
 
   const onSubmit = (e) => {
     e.preventDefault();

@@ -1,14 +1,19 @@
 import React from "react";
 import FormInput from "./FormInput";
+import { connect } from "react-redux";
+import { selectField } from "../actions/index";
+import { bindActionCreators } from "redux";
 
-const Form = ({
-  formStructure,
-  formData,
-  setFormData,
-  formTitle,
-  buttonText,
-  onSubmit,
-}) => {
+const Form = (props) => {
+  const {
+    formStructure,
+    formData,
+    setFormData,
+    formTitle,
+    buttonText,
+    onSubmit,
+  } = props;
+
   const getInputFromName = (name) => {
     return formStructure.reduce((acc, item) => {
       if (item.name === name) {
@@ -58,6 +63,11 @@ const Form = ({
     setFormData(formDataCopy);
   };
 
+  const onClear = () => {
+    setFormData([]);
+    props.selectField(null);
+  };
+
   return (
     <form className="" onSubmit={onSubmit}>
       <h2>{formTitle}</h2>
@@ -73,12 +83,19 @@ const Form = ({
           valid={getRegexTest(f.name)}
           errorMsg={f.description}
           patternDetail={f.patternDetail}
+          onUpdate={() => props.selectField(f)}
         />
       ))}
       <button className="submitBtn">{buttonText}</button>
-      <button className="clearBtn">Tout effacer</button>
+      <button className="clearBtn" onClick={onClear}>
+        Tout effacer
+      </button>
     </form>
   );
 };
 
-export default Form;
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ selectField: selectField }, dispatch);
+}
+
+export default connect(null, mapDispatchToProps)(Form);

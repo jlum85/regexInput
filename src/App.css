@@ -76,6 +76,7 @@ input.invalid + p {
   margin-bottom: 20px;
 }
 
+.clearBtn,
 .submitBtn {
   color: white;
   font-family: "Oswald", sans-serif;
@@ -83,7 +84,7 @@ input.invalid + p {
   background-color: #4183d7;
   font-size: 20px;
   height: 40px;
-  width: 50%;
+  width: 45%;
   text-align: center;
   margin-top: 30px;
 }
