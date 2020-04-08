@@ -23,7 +23,11 @@ label {
   align-items: center;
 }
 
-.detail,
+.detail {
+  width: 700px;
+  margin: 20px 30px;
+}
+
 form {
   width: 500px;
   margin: 20px auto;
@@ -84,9 +88,10 @@ input.invalid + p {
   background-color: #4183d7;
   font-size: 20px;
   height: 40px;
-  width: 45%;
+  width: 150px;
   text-align: center;
   margin-top: 30px;
+  margin-left: 20px;
 }
 
 .passed {
@@ -126,4 +131,33 @@ input.invalid + p {
   align-items: center;
   justify-content: space-between;
   margin-right: 50px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  border-bottom: solid 1px;
+  justify-content: space-between;
+}
+
+.col1,
+.col2,
+.col3 {
+  font-size: 14px;
+  border: none;
+  padding: 0px;
+  text-align: center;
+  margin: 0px;
+}
+
+.col1 {
+  width: 80px;
+}
+.col2 {
+  width: 350px;
+  /* text-align: left; */
+}
+.col3 {
+  width: 30px;
+  margin: 0 10px 0 0;
 }

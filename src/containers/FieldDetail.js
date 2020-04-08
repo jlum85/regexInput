@@ -15,6 +15,7 @@ const FieldDetail = (props) => {
   const [placeholder, setPlaceholder] = useState("");
   const [description, setDescription] = useState("");
   const [pattern, setPattern] = useState("");
+  const [regexDetail, setRegexDetail] = useState([]);
   const [createMode, setCreateMode] = useState(false);
   const [name, setName] = useState("");
   const { activeField: field } = props;
@@ -26,6 +27,7 @@ const FieldDetail = (props) => {
       setPlaceholder(field.placeholder);
       setDescription(field.description);
       setPattern(field.pattern);
+      setRegexDetail(field.patternDetail);
     }
   }, [field]);
 
@@ -64,7 +66,7 @@ const FieldDetail = (props) => {
       placeholder,
       pattern: regex,
       description,
-      patternDetail: [],
+      patternDetail: regexDetail,
     };
     if (createMode) {
       props.createField(newField);
@@ -73,6 +75,40 @@ const FieldDetail = (props) => {
       props.updateField(newField);
     }
     props.selectField(null);
+  };
+
+  const updateRow = (row, col, value) => {
+    const result = [...regexDetail];
+    for (let i = 0; i < result.length; i++) {
+      if (result[i].id === row) {
+        if (col === 1) {
+          result[i].pattern = value;
+        } else if (col === 2) {
+          result[i].message = value;
+        } else if (col === 3) {
+          result[i].expected = value;
+        }
+      }
+    }
+    setRegexDetail(result);
+  };
+
+  const addRow = () => {
+    const result = [...regexDetail];
+    result.push({
+      id: regexDetail.reduce((maxId, item) => Math.max(item.id, maxId), 0) + 1,
+      pattern: "",
+      message: "",
+      expected: true,
+    });
+    setRegexDetail(result);
+  };
+
+  const deleteRow = (row) => {
+    const result = regexDetail.filter((item) => {
+      return item.id !== row;
+    });
+    setRegexDetail(result);
   };
 
   return (
@@ -168,7 +204,12 @@ const FieldDetail = (props) => {
               autoComplete="off"
             ></input>
 
-            <PatternDetail patternDetail={field.patternDetail} />
+            <PatternDetail
+              patternDetail={regexDetail}
+              updateRow={updateRow}
+              addRow={addRow}
+              deleteRow={deleteRow}
+            />
             <button className="submitBtn">Valider</button>
             <button
               className="clearBtn"
