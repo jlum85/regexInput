@@ -8,10 +8,9 @@ export function isRegExp(regExp) {
 }
 
 export const StringToRegex = (pattern) => {
-  const flags = pattern.replace(/.*\/([gimy]*)$/, "$1");
-  const expression = pattern.replace(
-    new RegExp("^/(.*?)/" + flags + "$"),
-    "$1"
-  );
+  const flags = pattern.toString().replace(/.*\/([gimy]*)$/, "$1");
+  const expression = pattern
+    .toString()
+    .replace(new RegExp("^/(.*?)/" + flags + "$"), "$1");
   return new RegExp(expression, flags);
 };

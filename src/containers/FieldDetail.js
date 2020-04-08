@@ -8,7 +8,7 @@ import {
   updateField,
 } from "../actions/index";
 import PatternDetail from "../components/PatternDetail";
-import { isRegExp, StringToRegex } from "../utils/regex";
+import { StringToRegex } from "../utils/regex";
 
 const FieldDetail = (props) => {
   const [label, setLabel] = useState("");

@@ -14,7 +14,6 @@ export default function FieldsReducer(state = data, action) {
     case AT_FIELD.CREATE:
       return [...state, action.payload];
     case AT_FIELD.UPDATE:
-      console.log("AT_FIELD.UPDATE", action.payload);
       return state.map((item) => {
         if (item.name === action.payload.name) {
           return action.payload;
