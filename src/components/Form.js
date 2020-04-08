@@ -45,12 +45,7 @@ const Form = (props) => {
     if (!value || !regex) {
       return "";
     }
-
-    if (regex.test(value)) {
-      return "valid";
-    } else {
-      return "invalid";
-    }
+    return regex.test(value) ? "valid" : "invalid";
   };
 
   const handleChange = (event) => {
@@ -69,7 +64,7 @@ const Form = (props) => {
   };
 
   return (
-    <form className="" onSubmit={onSubmit}>
+    <form onSubmit={onSubmit}>
       <h2>{formTitle}</h2>
       {formStructure.map((f) => (
         <FormInput
