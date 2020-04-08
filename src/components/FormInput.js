@@ -31,7 +31,7 @@ const FormInput = (props) => {
       let passed = false;
       if (value) {
         // on a des conditions négatives /[^a-z\d]/i pour vérifier qu'il n'y a que des caractères alphanumériques
-        passed = regex.test(value) === item.expected;
+        passed = RegExp(regex).test(value) === item.expected;
       }
       return <ItemDetail key={index} passed={passed} message={item.message} />;
     });
