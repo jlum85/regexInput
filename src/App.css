@@ -86,6 +86,13 @@ input.invalid + p {
   margin-bottom: 20px;
 }
 
+.divBtn {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
 .clearBtn,
 .submitBtn {
   color: white;
@@ -94,10 +101,15 @@ input.invalid + p {
   background-color: #4183d7;
   font-size: 20px;
   height: 40px;
-  width: 150px;
-  text-align: center;
+  width: 130px;
   margin-top: 30px;
-  margin-left: 20px;
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.divBtn a {
+  text-decoration: none;
 }
 
 .passed {
@@ -202,10 +214,17 @@ h3 {
     width: 350px;
   }
 
+  .detail,
+  form {
+    width: 375px;
+    margin: 10px;
+  }
   input {
     width: 350px;
   }
-
+  .divLabel {
+    width: 350px;
+  }
   .inputDetail {
     width: 320px;
     margin: 10px;
@@ -220,5 +239,11 @@ h3 {
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
+  }
+
+  .clearBtn,
+  .submitBtn {
+    font-size: 14px;
+    width: 100px;
   }
 }

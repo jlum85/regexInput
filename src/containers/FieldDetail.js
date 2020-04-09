@@ -227,16 +227,18 @@ const FieldDetail = (props) => {
               addRow={addRow}
               deleteRow={deleteRow}
             />
-            <button className="submitBtn">Valider</button>
-            <button
-              className="clearBtn"
-              onClick={() => {
-                setCreateMode(false);
-                props.selectField(null);
-              }}
-            >
-              Annuler
-            </button>
+            <div className="divBtn">
+              <button className="submitBtn">Valider</button>
+              <button
+                className="clearBtn"
+                onClick={() => {
+                  setCreateMode(false);
+                  props.selectField(null);
+                }}
+              >
+                Annuler
+              </button>
+            </div>
           </form>
         </div>
       )}

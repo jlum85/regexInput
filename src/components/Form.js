@@ -81,10 +81,20 @@ const Form = (props) => {
           onUpdate={() => props.selectField(f)}
         />
       ))}
-      <button className="submitBtn">{buttonText}</button>
-      <button className="clearBtn" onClick={onClear}>
-        Tout effacer
-      </button>
+      <div className="divBtn">
+        <button className="submitBtn">{buttonText}</button>
+        <button className="clearBtn" onClick={onClear}>
+          Tout effacer
+        </button>
+
+        <a
+          href="https://regex101.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div className="clearBtn">Regex101</div>
+        </a>
+      </div>
     </form>
   );
 };
