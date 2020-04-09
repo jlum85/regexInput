@@ -1,11 +1,11 @@
-# React Regex
+# React Redux Regex
 
-Création automatique d'input à partir de ce qui est défini dans FormStructure.js
+Création automatique d'input à partir d'un tableau d'objet modifiable.
 
 Exemple :
 
 ```js
-export const fields = [
+export const data = [
   {
     name: "username",
     label: "Login",

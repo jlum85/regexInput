@@ -62,7 +62,7 @@ const PatternDetail = (props) => {
 
   return (
     <>
-      <h3>Détails </h3>
+      <h3>Détails de l'expression régulière</h3>
 
       <div className="bodyLot">
         <div className="row">

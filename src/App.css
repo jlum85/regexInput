@@ -5,6 +5,7 @@ body {
 
 .App {
   display: flex;
+  justify-content: center;
 }
 
 h1 {
@@ -25,12 +26,17 @@ label {
 
 .detail {
   width: 700px;
-  margin: 20px 30px;
+  margin: 0px 30px 20px 30px;
 }
 
 form {
   width: 500px;
-  margin: 20px auto;
+  margin: 20px 30px;
+}
+
+.formDetail {
+  width: 600px;
+  margin: 20px 30px;
 }
 
 .errorMsg {
@@ -126,11 +132,17 @@ input.invalid + p {
   color: red;
 }
 
+.headerCreate {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
 .headerParam {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-right: 50px;
 }
 
 .row {
@@ -138,26 +150,75 @@ input.invalid + p {
   align-items: center;
   border-bottom: solid 1px;
   justify-content: space-between;
+  padding-top: 8px;
+}
+h3 {
+  margin: 20px 0 10px 0;
 }
 
 .col1,
 .col2,
 .col3 {
-  font-size: 14px;
   border: none;
   padding: 0px;
   text-align: center;
   margin: 0px;
+  font-size: 14px;
 }
 
 .col1 {
-  width: 80px;
+  width: 100px;
 }
 .col2 {
-  width: 350px;
-  /* text-align: left; */
+  width: 450px;
 }
 .col3 {
   width: 30px;
   margin: 0 10px 0 0;
+}
+
+.inputDetail {
+  font-size: 14px;
+  width: 600px;
+}
+
+.headerLeft svg {
+  margin: 0 10px;
+}
+
+.bodyLot {
+  margin-bottom: 10px;
+}
+
+@media only screen and (min-width: 375px) and (max-width: 812px) {
+  .App {
+    flex-direction: column;
+  }
+
+  .headerParam {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 350px;
+  }
+
+  input {
+    width: 350px;
+  }
+
+  .inputDetail {
+    width: 320px;
+    margin: 10px;
+  }
+  .formDetail {
+    margin: 5px;
+    width: 350px;
+  }
+
+  .div-param {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
 }

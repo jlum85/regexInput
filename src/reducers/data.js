@@ -56,7 +56,7 @@ export const data = [
     name: "phone",
     label: "Téléphone",
     placeholder: "Téléphone",
-    pattern: /^\d{11}$/,
+    pattern: /^\d{10}$/,
     description: "Un téléphone valide contient 10 chiffres",
     patternDetail: [
       {
