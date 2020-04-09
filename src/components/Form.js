@@ -63,6 +63,10 @@ const Form = (props) => {
     props.selectField(null);
   };
 
+  const hasError = () => {
+    return formStructure.filter((f) => !getRegexTest(f.name)).length > 0;
+  };
+
   return (
     <form onSubmit={onSubmit}>
       <h2>{formTitle}</h2>
@@ -82,7 +86,9 @@ const Form = (props) => {
         />
       ))}
       <div className="divBtn">
-        <button className="submitBtn">{buttonText}</button>
+        <button disabled={hasError()} className="submitBtn">
+          {buttonText}
+        </button>
         <button className="clearBtn" onClick={onClear}>
           Tout effacer
         </button>

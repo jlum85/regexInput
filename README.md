@@ -44,4 +44,3 @@ export const data = [
 ### Todo
 
 - Revoir le responsive
-- Ajouter lien vers https://regex101.com/

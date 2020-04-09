@@ -112,6 +112,11 @@ input.invalid + p {
   text-decoration: none;
 }
 
+.submitBtn[disabled] {
+  background-color: #cccccc;
+  color: #666666;
+}
+
 .passed {
   color: rgba(white, 0.3);
   transition: 0.4s all;
