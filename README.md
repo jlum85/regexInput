@@ -33,6 +33,15 @@ export const data = [
 
 ![image](https://user-images.githubusercontent.com/31165759/75120280-ba579900-568a-11ea-99fa-d96f029de16c.png)
 
-## le bouton (!) permet d'avoir plus de détail sur les règles qui doivent être respectées pour valider la saisie.
+### le bouton (!) permet d'avoir plus de détail sur les règles qui doivent être respectées pour valider la saisie.
 
 ![image](https://user-images.githubusercontent.com/31165759/75120414-14a52980-568c-11ea-8227-b88038817a32.png)
+
+### Démo Gif
+
+![Gif demo](src/demo/react-regex.gif)
+
+### Todo
+
+- Revoir le responsive
+- Ajouter lien vers https://regex101.com/
